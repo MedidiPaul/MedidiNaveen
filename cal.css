@@ -1,0 +1,54 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #000; /* Black background for numbers */
+    color: white;
+    font-size: 20px;
+}
+
+.calculator {
+    width: 300px;
+    background-color: #e1ebf3; /* White background for the result display */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5 );
+}
+
+.display {
+    text-align: right;
+    padding: 10px;
+    font-size: 24px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row {
+    display: flex;
+}
+
+button {
+    flex: 1;
+    padding: 30px;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+.number {
+    background-color:white; /* Black background for numbers */
+    color: black;
+}
+
+.operator {
+    background-color: white; /* Cement background for operators */
+    color: black;
+}
+.clear{
+    background-color:pink;
+}
