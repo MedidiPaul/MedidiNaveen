@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Survey Form</title>
+    <style>
+        body {
+            background-color: lightblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Add more CSS styling as needed */
+    </style>
+
+<body>
+    <div class="form-container">
+
+
+</head>
+    <h1>Survey Form</h1>
+    <form id="surveyForm" onsubmit="return false;">
+        <label for="Name">Name:</label>
+        <input type="text" id="firstName" name="firstName" required><br><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required><br><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <label for="country">Country:</label>
+        <select id="country" name="country" required>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="UK">UK</option>
+            <!-- Add more country options as needed -->
+        </select><br><br>
+
+        <label>Gender:</label>
+        <input type="checkbox" id="male" name="gender" value="Male">
+        <label for="male">Male</label>
+        <input type="checkbox" id="female" name="gender" value="Female">
+        <label for="female">Female</label><br><br>
+
+        <label for="profession">Profession:</label>
+        <input type="text" id="profession" name="profession" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" name="mobile" required><br><br>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+        <button type="button" onclick="resetForm()">Reset</button>
+    </form>
+
+    
+    <div id="popup" class="popup">
+        <div id="popup-content" class="popup-content"></div>
+        <button type="button" onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        function submitForm() {
+        
+
+            
+            const firstName = document.getElementById("firstName").value;
+            const lastName = document.getElementById("lastName").value;
+            const dob = document.getElementById("dob").value;
+            const country = document.getElementById("country").value;
+            const genderElements = document.getElementsByName("gender");
+            let gender = "";
+            for (let i = 0; i < genderElements.length; i++) {
+                if (genderElements[i].checked) {
+                    gender += genderElements[i].value + " ";
+                }
+            }
+            const profession = document.getElementById("profession").value;
+            const email = document.getElementById("email").value;
+            const mobile = document.getElementById("mobile").value;
+
+            const popupContent = `
+                <p>First Name: ${firstName}</p>
+                <p>Last Name: ${lastName}</p>
+                <p>Date of Birth: ${dob}</p>
+                <p>Country: ${country}</p>
+                <p>Gender: ${gender}</p>
+                <p>Profession: ${profession}</p>
+                <p>Email: ${email}</p>
+                <p>Mobile Number: ${mobile}</p>
+            `;
+
+            document.getElementById("popup-content").innerHTML = popupContent;
+            document.getElementById("popup").style.display = "block";
+
+        
+            resetForm();
+        }
+
+        function resetForm() {
+            document.getElementById("surveyForm").reset();
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+</body>
+</html>
